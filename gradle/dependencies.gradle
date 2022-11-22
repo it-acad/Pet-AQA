@@ -1,0 +1,100 @@
+repositories {
+    mavenCentral()
+    maven {
+        url "https://m2proxy.atlassian.com/repository/public"
+    }
+    maven {
+        url "https://mvnrepository.com/artifact"
+    }
+    maven {
+        url "https://elevateapp.jfrog.io/artifactory/elevate/"
+        credentials {
+            username System.getenv('ARTIFACTORY_USR')
+            password System.getenv('ARTIFACTORY_PSW')
+        }
+    }
+}
+
+ext {
+    junit5Ver = '5.8.2'
+    lombokVer = '1.18.24'
+    allureVer = '2.17.3'
+    jacksonVer = '2.13.2'
+    restAssuredVer = '4.5.1'
+    awsSdkVer = '1.12.213'
+    selenideVer = '6.4.0'
+    assertJVer = '3.22.0'
+    openFeighVer = '11.8'
+    postgresVer = '42.3.5'
+    set('fiservClientApiVersion', '0.0.6')
+    set('fiservPaymentsClientApiVersion', '0.0.1')
+    set('fiservCustomersClientApiVersion', '0.0.13')
+}
+
+dependencies {
+    annotationProcessor "org.projectlombok:lombok:${lombokVer}"
+    compileOnly("org.projectlombok:lombok:${lombokVer}")
+    implementation(
+            // allure
+            "io.qameta.allure:allure-java-commons:${allureVer}",
+            "io.qameta.allure:allure-assertj:${allureVer}",
+            "io.qameta.allure:allure-rest-assured:${allureVer}",
+            "io.qameta.allure:allure-junit5:${allureVer}",
+            "io.qameta.allure:allure-selenide:${allureVer}",
+            // aspectJ for allure
+            "org.aspectj:aspectjweaver:1.9.9.1",
+            // aws
+            "com.amazonaws:aws-java-sdk:${awsSdkVer}",
+            "com.amazonaws:aws-java-sdk-sts:${awsSdkVer}",
+
+            // fasterxml
+            "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVer}",
+            "com.fasterxml.jackson.core:jackson-databind:${jacksonVer}",
+            // restAssured
+            "io.rest-assured:rest-assured:${restAssuredVer}",
+            // fiserv
+            "com.elevate:fiserv-api-client-customers:${fiservCustomersClientApiVersion}",
+            "com.elevate:fiserv-api-client-maintenance:${fiservClientApiVersion}",
+            "com.elevate:fiserv-api-client-payments:${fiservPaymentsClientApiVersion}",
+            // github
+            "io.github.openfeign:feign-okhttp:${openFeighVer}",
+            "io.github.openfeign:feign-gson:${openFeighVer}",
+            "io.github.openfeign:feign-slf4j:${openFeighVer}",
+            "io.github.hakky54:sslcontext-kickstart:7.4.1",
+            // selenide
+            "com.codeborne:selenide:${selenideVer}",
+            // assertJ
+            "org.assertj:assertj-core:${assertJVer}",
+            // junit5
+            "org.junit.jupiter:junit-jupiter-engine:${junit5Ver}",
+            // postgres
+            "org.postgresql:postgresql:${postgresVer}",
+
+            "org.yaml:snakeyaml:1.26",
+
+            "com.github.javafaker:javafaker:1.0.2",
+
+            "com.atlassian.jira:jira-rest-java-client-core:5.2.0",
+            "io.atlassian.fugue:fugue:4.7.2",
+            "org.reflections:reflections:0.9.12",
+
+            "org.awaitility:awaitility:3.0.0",
+            "org.bitbucket.b_c:jose4j:0.7.10",
+
+            "org.springframework:spring-web:3.0.4.RELEASE",
+            "com.playtika.reactivefeign:feign-reactor-core:3.2.0",
+            "org.springframework.cloud:spring-cloud-starter-openfeign:3.1.1",
+            "com.netflix.feign:feign-jackson:8.18.0",
+            'com.opencsv:opencsv:4.3'
+    )
+    testImplementation(
+            // assertJ
+            "org.assertj:assertj-core:${assertJVer}",
+            "org.junit.jupiter:junit-jupiter-api:${junit5Ver}",
+            'org.testcontainers:junit-jupiter:1.17.1',
+            'org.testcontainers:selenium:1.17.1',
+            "org.junit.jupiter:junit-jupiter-params:${junit5Ver}"
+    )
+
+}
+

@@ -1,0 +1,91 @@
+Service ID,Service/MCC,Is Displayed?,Payment Order
+0,Alternative treatments,Yes,"FSA/HRA/HSA"
+1,Chiropractic care,Yes,"FSA/HRA/HSA"
+2,Durable medical equipment,Yes,"FSA/HRA/HSA"
+3,Emergency care,Yes,"FSA/HRA/HSA"
+4,Family planning,Yes,"FSA/HRA/HSA"
+5,Feminine care,Yes,"FSA/HRA/HSA"
+6,Hearing aids or supplies,Yes,"FSA/HRA/HSA"
+7,Hospitalization,Yes,"FSA/HRA/HSA"
+8,Laboratory tests - medical,Yes,"FSA/HRA/HSA"
+9,Long term care,Yes,"FSA/HRA/HSA"
+10,Maternity care,Yes,"FSA/HRA/HSA"
+11,Medical supplies and devices,Yes,"FSA/HRA/HSA"
+12,Mental health care,Yes,"FSA/HRA/HSA"
+13,Office visit - primary care,Yes,"FSA/HRA/HSA"
+14,Office visit - specialty care,Yes,"FSA/HRA/HSA"
+15,Personal protective equipment (PPE),Yes,"FSA/HRA/HSA"
+16,Preventive care,Yes,"FSA/HRA/HSA"
+17,Service animals,Yes,"FSA/HRA/HSA"
+18,Smoking cessation,Yes,"FSA/HRA/HSA"
+19,Surgery - inpatient,Yes,"FSA/HRA/HSA"
+20,Surgery - outpatient,Yes,"FSA/HRA/HSA"
+21,Telemedicine,Yes,"FSA/HRA/HSA"
+22,Transportation for medical care,Yes,"FSA/HRA/HSA"
+23,Medical - other,Yes,"FSA/HRA/HSA"
+24,4119 - Ambulance Services,No,"FSA/HRA/HSA"
+25,5047 - Dental/Lab/Medical/Opthalmic Hospital Equip & Supp,No,"FSA/HRA/HSA"
+26,5975 - Hearing Aids,No,"FSA/HRA/HSA"
+27,"5976 - Orthopedic Goods, Prosthetic Devices",No,"FSA/HRA/HSA"
+28,8011 - Doctors NEC,No,"FSA/HRA/HSA"
+29,8031 - Osteopathic Physicians,No,"FSA/HRA/HSA"
+30,8041 - Chiropractors,No,"FSA/HRA/HSA"
+31,"8049 - Chiropodists, Podiatrists",No,"FSA/HRA/HSA"
+32,8050 - Nursing and Personal Care Facilities,No,"FSA/HRA/HSA"
+33,8062 - Hospitals,No,"FSA/HRA/HSA"
+34,8071 - Medical and Dental Laboratories,No,"FSA/HRA/HSA"
+35,"8099 - Medical Services & Health Practitioners, NEC",No,"FSA/HRA/HSA"
+36,Prescription drugs,Yes,"FSA/HRA/HSA"
+37,Over-the-counter medicines,Yes,"FSA/HRA/HSA"
+38,Pharmacy - other,Yes,"FSA/HRA/HSA"
+39,"5122 - Drugs, Drug Proprietaries, Druggist�s Sundries",No,"FSA/HRA/HSA"
+40,"5300 - Warehouses, Wholesale Clubs",No,"FSA/HRA/HSA"
+41,5310 - Discount Stores,No,"FSA/HRA/HSA"
+42,5311 - Department Stores,No,"FSA/HRA/HSA"
+43,5399 - Miscellaneous General Merchandise Stores,No,"FSA/HRA/HSA"
+44,"5411 - Grocery Stores, Supermarkets",No,"FSA/HRA/HSA"
+45,5499 - Miscellaneous Food Stores,No,"FSA/HRA/HSA"
+46,"5912 - Drug Stores, Pharmacies ",No,"FSA/HRA/HSA"
+47,5960 - Direct Marketing  Insurance Services,No,"FSA/HRA/HSA"
+48,5964 - Direct Marketing  Catalog Merchant,No,"FSA/HRA/HSA"
+49,5965 - Direct Marketing  Catalog & Retail Merchant,No,"FSA/HRA/HSA"
+50,"5969 - Direct Marketing, NEC",No,"FSA/HRA/HSA"
+51,Dental care and treatment,Yes,"FSA/HRA/HSA"
+52,Dental supplies and devices,Yes,"FSA/HRA/HSA"
+53,Orthodontia,Yes,"FSA/HRA/HSA"
+54,Dental - other,Yes,"FSA/HRA/HSA"
+55,"8021 - Dentists, Orthodontists",No,"FSA/HRA/HSA"
+56,Contact lenses and solutions,Yes,"FSA/HRA/HSA"
+57,Eye exams,Yes,"FSA/HRA/HSA"
+58,Eye surgery,Yes,"FSA/HRA/HSA"
+59,Eyeglasses and sunglasses,Yes,"FSA/HRA/HSA"
+60,Eye supplies and devices,Yes,"FSA/HRA/HSA"
+61,Vision - other,Yes,"FSA/HRA/HSA"
+62,3827 - Optical Instruments and Lenses,No,"FSA/HRA/HSA"
+63,"8042 - Optometrists, Opthalmologists",No,"FSA/HRA/HSA"
+64,"8043 - Opticians, Optical Goods & Eyeglasses",No,"FSA/HRA/HSA"
+65,8044 - Optical Goods and Eyeglasses,No,"FSA/HRA/HSA"
+66,Au pair/Nanny,Yes,DCAP
+67,Before and after school care,Yes,DCAP
+68,Day camp,Yes,DCAP
+69,Daycare,Yes,DCAP
+70,Elder care,Yes,DCAP
+71,Preschool and prekindergarten,Yes,DCAP
+72,Dependent care - other,Yes,DCAP
+73,8211 - Elementary and secondary schools,No,DCAP
+74,8351 - Child care services,No,DCAP
+75,Parking,No,N/A
+76,Parking - other,No,N/A
+77,"7523 - Auto Parking Lots, Garages",No,N/A
+78,Transit,No,N/A
+79,Transit - other,No,N/A
+80,4111 - Transportation  Suburban and Local Commuter Passes,No,N/A
+81,4112 - Passenger Railways,No,N/A
+82,4131 - Bus Lines,No,N/A
+83,"4789 - Transportation Services, NEC",No,N/A
+84,Premiums,Yes,HSA
+85,Premiums - other,Yes,HSA
+86,"6300 - Insurance Sales and Underwriting, and Premiums  ",No,HSA
+87,6381 - Insurance Premiums  ,No,HSA
+88,Adoption,No,N/A
+89,Wellness ,No,N/A

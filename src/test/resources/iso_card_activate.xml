@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><isomsg direction="incoming">
+  <!-- org.jpos.iso.packager.GenericPackager[jar:packager/fiserv_health.xml] -->
+  <!-- header: 00330033 -->
+  <field id="0" value="0302"/>
+  <field id="2" value="6108590000132611"/>
+  <field id="7" value="0627130438"/>
+  <field id="11" value="000001"/>
+  <field id="48" value="000000000000001"/>
+  <field id="90" value="000000000000000000000000000000099900000000"/>
+  <field id="127" value="PI16A  "/>
+</isomsg>
