@@ -7,4 +7,5 @@ import lombok.Data;
 public class CoreConfig {
     private String hostUrl;
     private String adminUiUrl;
+    private String petUrl;
 }

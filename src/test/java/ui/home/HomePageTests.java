@@ -1,6 +1,7 @@
 package ui.home;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -33,15 +34,15 @@ public class HomePageTests extends BaseUITests {
                 .filter(predicate)
                 .collect(Collectors.toList());
 
-        Assert.assertEquals(list.size(), 1);
-        Assert.assertTrue(webdriver().driver().getWebDriver().findElement(xpath("//a[text() = '" + "MacBook" + "']/ancestor::div[contains(@class, 'caption')]")).getText().contains("MacBook"));
+        Assertions.assertEquals(list.size(), 1);
+        Assertions.assertTrue(webdriver().driver().getWebDriver().findElement(xpath("//a[text() = '" + "MacBook" + "']/ancestor::div[contains(@class, 'caption')]")).getText().contains("MacBook"));
 
         openHomePage().isLoaded()
                 .clickFormCurrency()
                 .clickCurrencyList("MacBook");
 
         String price = webdriver().driver().getWebDriver().findElement(xpath("//a[text() = '" + "MacBook" + "']/ancestor::div[contains(@class, 'caption')]//p[contains(@class,'price')]")).getText().split("\n")[0];
-        Assert.assertEquals(price, "$602.00");
+        Assertions.assertEquals(price, "$602.00");
     }
 
     @Test
@@ -54,6 +55,6 @@ public class HomePageTests extends BaseUITests {
                 .clickUpdateButtonByText("mac")
                 .cardExpend();
 
-        Assert.assertEquals(webdriver().driver().getWebDriver().findElement(xpath("//span[@id='cart-total']/..")).getText().split("\\s")[0], "4");
+        Assertions.assertEquals(webdriver().driver().getWebDriver().findElement(xpath("//span[@id='cart-total']/..")).getText().split("\\s")[0], "4");
     }
 }

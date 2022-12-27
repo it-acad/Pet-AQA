@@ -6,6 +6,6 @@ test {
         useJUnitPlatform()
     }
     filter {
-        includeTestsMatching("ui.home.HomePageTests")
+        includeTestsMatching("core.pet.pet.PetTests")
     }
 }
