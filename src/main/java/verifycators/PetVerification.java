@@ -1,6 +1,6 @@
 package verifycators;
 
-import entities.dto.policy.PetDTO;
+import entities.dto.pet.PetDTO;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.assertj.core.api.Assertions;

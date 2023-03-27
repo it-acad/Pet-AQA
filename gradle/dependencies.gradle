@@ -2,16 +2,7 @@ repositories {
     mavenCentral()
     maven {
         url "https://m2proxy.atlassian.com/repository/public"
-    }
-    maven {
-        url "https://mvnrepository.com/artifact"
-    }
-    maven {
-        url "https://elevateapp.jfrog.io/artifactory/elevate/"
-        credentials {
-            username System.getenv('ARTIFACTORY_USR')
-            password System.getenv('ARTIFACTORY_PSW')
-        }
+        name "atlassian"
     }
 }
 
@@ -26,9 +17,6 @@ ext {
     assertJVer = '3.22.0'
     openFeighVer = '11.8'
     postgresVer = '42.3.5'
-    set('fiservClientApiVersion', '0.0.6')
-    set('fiservPaymentsClientApiVersion', '0.0.1')
-    set('fiservCustomersClientApiVersion', '0.0.13')
 }
 
 dependencies {
@@ -52,10 +40,6 @@ dependencies {
             "com.fasterxml.jackson.core:jackson-databind:${jacksonVer}",
             // restAssured
             "io.rest-assured:rest-assured:${restAssuredVer}",
-            // fiserv
-            "com.elevate:fiserv-api-client-customers:${fiservCustomersClientApiVersion}",
-            "com.elevate:fiserv-api-client-maintenance:${fiservClientApiVersion}",
-            "com.elevate:fiserv-api-client-payments:${fiservPaymentsClientApiVersion}",
             // github
             "io.github.openfeign:feign-okhttp:${openFeighVer}",
             "io.github.openfeign:feign-gson:${openFeighVer}",

@@ -1,3 +1,6 @@
 hostUrl: https://demo-opencart.com/
 adminUiUrl: https://demo-opencart.com/admin
+amadeusUri: https://test.api.amadeus.com
 petUrl: /api/v3/pet
+clientId: yMlMohdXqKJxWNpcv0SvIs4nMBaH1wwW
+secretKey: 1szhf54F4UA1FPQ2

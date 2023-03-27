@@ -1,8 +1,8 @@
-package entities.dto.policy;
+package entities.dto.pet;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import entities.dto.policy.config.CategoryDTO;
-import entities.dto.policy.enums.PhotoUrls;
+import entities.dto.pet.config.CategoryDTO;
+import entities.dto.pet.enums.PhotoUrls;
 import lombok.*;
 
 import java.util.List;

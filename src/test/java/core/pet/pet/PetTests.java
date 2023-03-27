@@ -1,11 +1,10 @@
 package core.pet.pet;
 
+import common.BaseTest;
 import controllers.pet.PetController;
-import core.pet.BasePetTests;
 
-import entities.dto.policy.PetDTO;
+import entities.dto.pet.PetDTO;
 import helper.data_generators.PetTestDataGenerator;
-import io.qameta.allure.TmsLink;
 
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
@@ -13,9 +12,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TmsLink("EL-835")
-@DisplayName("[Pet]")
-public class PetTests extends BasePetTests {
+@DisplayName("[Pet tests]")
+public class PetTests extends BaseTest {
 
     @Test
     @DisplayName("Verify create new Pet")

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 
 @Link(name = "allure", type = "mylink")
 @Execution(ExecutionMode.CONCURRENT)
-//@ExtendWith(TestResultLoggerExtension.class)
-public class BaseElTest {
+public class BaseTest {
 
 }

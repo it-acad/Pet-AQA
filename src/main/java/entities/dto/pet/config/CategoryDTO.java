@@ -1,6 +1,5 @@
-package entities.dto.policy;
+package entities.dto.pet.config;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import groovy.transform.builder.Builder;
 import lombok.AllArgsConstructor;
@@ -13,9 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TagsDTO {
+public class CategoryDTO {
     private Long id;
     private String name;
 }

@@ -1,4 +1,4 @@
-package entities.dto.policy.enums;
+package entities.dto.pet.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

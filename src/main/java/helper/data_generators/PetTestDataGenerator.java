@@ -1,9 +1,9 @@
 package helper.data_generators;
 
 import com.github.javafaker.Faker;
-import entities.dto.policy.*;
-import entities.dto.policy.config.CategoryDTO;
-import entities.dto.policy.enums.PhotoUrls;
+import entities.dto.pet.*;
+import entities.dto.pet.config.CategoryDTO;
+import entities.dto.pet.enums.PhotoUrls;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;

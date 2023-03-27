@@ -3,7 +3,7 @@ package controllers.pet;
 import config.Conf;
 import controllers.BaseController;
 
-import entities.dto.policy.PetDTO;
+import entities.dto.pet.PetDTO;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import verifycators.PetVerification;

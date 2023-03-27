@@ -1,5 +1,6 @@
 package controllers;
 
+import helper.ApplicationHelper;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
@@ -30,5 +31,17 @@ public class BaseController<T> {
         }
 
         return baseService;
+    }
+
+    public T withToken() {
+        authValue = getToken();
+        return (T) this;
+    }
+
+    public synchronized String getToken() {
+        if (authValue == null) {
+            authValue = ApplicationHelper.getCurrentToken();
+        }
+        return authValue;
     }
 }
