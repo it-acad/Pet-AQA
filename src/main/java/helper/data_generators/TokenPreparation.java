@@ -10,7 +10,7 @@ public class TokenPreparation {
 
     public AmadeusToken signIn() {
         var result = given()
-                .baseUri(Conf.core().getAmadeusUri())
+                .baseUri(Conf.core().getAmadeusUrl())
                 .contentType(ContentType.URLENC)
                 .formParam("client_id", Conf.core().getClientId())
                 .formParam("client_secret", Conf.core().getSecretKey())
