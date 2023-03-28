@@ -4,8 +4,10 @@ import config.Conf;
 import controllers.BaseController;
 
 import entities.dto.pet.PetDTO;
+import helper.clean_up.TestDataRemoveCollector;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import verifycators.PetVerification;
 
 public class PetController extends BaseController<PetController> {
@@ -24,6 +26,10 @@ public class PetController extends BaseController<PetController> {
         Response response = baseClient(basePath, baseUri)
                 .body(pet)
                 .post();
+        if (response.getStatusCode() == HttpStatus.SC_OK) {
+            TestDataRemoveCollector
+                    .addId(response.jsonPath().getLong("id"));
+        }
         return new PetVerification(response);
     }
 

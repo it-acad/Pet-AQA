@@ -1,7 +1,6 @@
 package helper;
 
 import config.AmadeusToken;
-import helper.data_generators.TokenPreparation;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package core.pet.amadeus;
+package core.amadeus;
 
 import common.BaseApiTests;
 import controllers.amadeus.AmadeusController;

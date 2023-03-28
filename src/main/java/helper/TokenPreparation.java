@@ -1,4 +1,4 @@
-package helper.data_generators;
+package helper;
 
 import config.AmadeusToken;
 import config.Conf;

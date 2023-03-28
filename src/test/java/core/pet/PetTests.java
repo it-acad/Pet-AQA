@@ -1,4 +1,4 @@
-package core.pet.pet;
+package core.pet;
 
 import common.BaseTest;
 import controllers.pet.PetController;
@@ -8,6 +8,7 @@ import helper.data_generators.PetTestDataGenerator;
 
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +19,17 @@ public class PetTests extends BaseTest {
     @Test
     @DisplayName("Verify create new Pet")
     public void verifyAddPet() {
+        PetDTO pet = PetTestDataGenerator.generatePet();
+
+        new PetController()
+                .addPet(pet)
+                .expectedCode(HttpStatus.SC_OK)
+                .expectedEqualsPet(pet);
+    }
+
+    @RepeatedTest(10)
+    @DisplayName("Verify create multiple Pet")
+    public void verifyAddMultiplePets() {
         PetDTO pet = PetTestDataGenerator.generatePet();
 
         new PetController()
