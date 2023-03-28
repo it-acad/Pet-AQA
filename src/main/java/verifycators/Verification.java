@@ -10,7 +10,6 @@ import java.util.Arrays;
 import static io.qameta.allure.Allure.step;
 import static org.hamcrest.Matchers.*;
 
-//@VerifyStep
 public class Verification<T> {
     @Getter
     protected final Response response;
@@ -23,8 +22,6 @@ public class Verification<T> {
         return response.as(cls);
     }
 
-    //No direct assert to avoid log spam in report.
-    //@Step("Expected response code equals to '{responseCode}'")
     public T expectedCode(int responseCode) {
         if (response.getStatusCode() != responseCode) {
             Assertions.fail("Response code not as expected! Expected " +
@@ -84,8 +81,8 @@ public class Verification<T> {
 
     @Step("Verify response contain not empty list")
     public T verifyContainsNotEmptyList() {
-        if (response.jsonPath().get("content") != null) {
-            var actualContent = response.jsonPath().getList("content");
+        if (response.jsonPath().get("data") != null) {
+            var actualContent = response.jsonPath().getList("data");
             Assertions.assertThat(actualContent).asList().isNotEmpty();
         } else {
             var actual = response.as(Object[].class);

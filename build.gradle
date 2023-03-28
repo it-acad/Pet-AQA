@@ -5,6 +5,6 @@ test {
         useJUnitPlatform()
     }
     filter {
-        includeTestsMatching("core.pet.PetTests.verifyAddPet")
+        includeTestsMatching("core.pet.PetTests")
     }
 }

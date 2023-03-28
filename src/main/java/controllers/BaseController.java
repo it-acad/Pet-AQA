@@ -1,9 +1,10 @@
 package controllers;
 
-import config.Conf;
 import helper.ApplicationHelper;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.config.RestAssuredConfig;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
@@ -21,12 +22,13 @@ public class BaseController<T> {
         var baseService = given()
                 .config(RestAssuredConfig.config()
                         .headerConfig(headerConfig().overwriteHeadersWithName("Authorization", "Content-Type")))
-                .log().all()
                 .baseUri(baseUri)
                 .basePath(targetPath)
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .filters(new AllureRestAssured());
+                .filters(new AllureRestAssured())
+                .filter(new RequestLoggingFilter())
+                .filter(new ResponseLoggingFilter());
 
         if (authValue != null) {
             baseService.header("Authorization", authValue);

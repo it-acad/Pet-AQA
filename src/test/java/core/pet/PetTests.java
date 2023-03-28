@@ -71,13 +71,13 @@ public class PetTests extends BaseTest {
         var editedPet = new PetController()
                 .updatePet(newPet)
                 .expectedCode(HttpStatus.SC_OK)
-                .expectedEqualsPet(pet)
+                .expectedEqualsPet(newPet)
                 .bindAs(PetDTO.class);
         assertThat(editedPet.getName()).isEqualTo(newPet.getName());
 
         new PetController()
                 .getPet(editedPet.getId())
                 .expectedCode(HttpStatus.SC_OK)
-                .expectedEqualsPet(pet);
+                .expectedEqualsPet(newPet);
     }
 }

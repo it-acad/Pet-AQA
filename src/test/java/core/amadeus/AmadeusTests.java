@@ -14,6 +14,7 @@ public class AmadeusTests extends BaseApiTests {
         new AmadeusController()
                 .withToken()
                 .getFlightDestination("PAR", 200)
-                .expectedCode(HttpStatus.SC_OK);
+                .expectedCode(HttpStatus.SC_OK)
+                .verifyContainsNotEmptyList();
     }
 }

@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class CleanUpExtension implements AfterAllCallback {
 
-    private Set<Long> idsToDelete;
+    private final Set<Long> idsToDelete;
 
     public CleanUpExtension() {
         this.idsToDelete = TestDataRemoveCollector.getIds();
@@ -21,11 +21,13 @@ public class CleanUpExtension implements AfterAllCallback {
         for (Long id : idsToDelete) {
             given()
                     .log().all()
-                    .baseUri("https://petstore.swagger.io/")
-                    .basePath("v2/")
+                    .baseUri("https://petstore3.swagger.io")
+                    .basePath("/api/v3/")
                     .accept(ContentType.JSON)
                     .contentType(ContentType.JSON)
-                    .delete("/pet/{id}", id);
+                    .delete("/pet/{id}", id)
+                    .then()
+                    .statusCode(200);
         }
     }
 }

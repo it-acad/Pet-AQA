@@ -21,7 +21,7 @@ public class PetController extends BaseController<PetController> {
         return new PetVerification(response);
     }
 
-    @Step("Add new Pet {policy.name}")
+    @Step("Add new Pet {PetDTO.name}")
     public PetVerification addPet(PetDTO pet) {
         Response response = baseClient(basePath, baseUri)
                 .body(pet)
@@ -33,7 +33,7 @@ public class PetController extends BaseController<PetController> {
         return new PetVerification(response);
     }
 
-    @Step("Update existing Pet Status")
+    @Step("Update existing Pet")
     public PetVerification updatePet(PetDTO body) {
         Response response = baseClient(basePath, baseUri)
                 .body(body)
