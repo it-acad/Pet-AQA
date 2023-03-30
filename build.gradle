@@ -4,7 +4,7 @@ test {
     test {
         useJUnitPlatform()
     }
-    filter {
-        includeTestsMatching("core.pet.PetTests")
-    }
+//    filter {
+//        includeTestsMatching("core.pet.PetTests")
+//    }
 }

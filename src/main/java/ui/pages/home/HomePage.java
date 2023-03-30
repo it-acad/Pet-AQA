@@ -3,16 +3,22 @@ package ui.pages.home;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class HomePage extends BaseHomePage<HomePage> {
 
     private final By logo = By.id("logo");
-    private final By currencyButton = By.xpath("//*[@id='form-currency']//a");
+    private final By currencyButton = By.xpath("//*[@id='form-currency']//span");
     private final By searchInput = By.xpath("//*[@name='search']");
-    private final By cartExpanded = By.id("//span[@id='cart-total']/..");
+    private final By cartExpanded = By.xpath("//span[@id='cart-total']/..");
+    private final By buyButton = By.cssSelector("button#button-cart");
+    private final By quantity = By.cssSelector("input[name='quantity']");
+    private final By productThumb = By.cssSelector(".product-thumb");
 
     @Override
     @Step("Verify Home page is loaded")
@@ -27,21 +33,30 @@ public class HomePage extends BaseHomePage<HomePage> {
         return this;
     }
 
-    @Step("Find and get some item")
-    public HomePage findAndTakeSomeItem(String value, String count) {
-        $("//*[@id='content']//a[text()='" + value + "']/../following-sibling::td/following-sibling::td//input").sendKeys(count);
+    @Step("Take {count} item")
+    public HomePage takeSomeItem(int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("Count should be a positive integer.");
+        }
+        $(quantity).setValue(String.valueOf(count));
+        return this;
+    }
+
+    @Step("Select item by {name}")
+    public HomePage selectItem(String name) {
+        $(By.xpath("//*[@id='content']//a[text()='" + name + "']")).click();
         return this;
     }
 
     @Step("Click Update button")
-    public HomePage clickUpdateButtonByText(String text) {
-        $(By.xpath("//*[@id='content']//a[text()='" + text + "']/../following-sibling::td/following-sibling::td//button[@data-original-title='Update']")).click();
+    public HomePage clickUpdateButton() {
+        $(buyButton).click();
         return this;
     }
 
     @Step("Choose currency")
     public HomePage clickCurrencyList(String currency) {
-        $(By.xpath("//*[@id='form-currency']//a[@href='" + currency + "']")).click();
+        $(By.xpath("//*[@id='form-currency']//button[@name='" + currency + "']")).click();
         return this;
     }
 
@@ -55,6 +70,13 @@ public class HomePage extends BaseHomePage<HomePage> {
     @Step("Search value")
     public HomePage searchText(String mac) {
         $(searchInput).sendKeys(mac + Keys.ENTER);
+        return this;
+    }
+
+    @Step("Scroll browser to item")
+    public HomePage scrollToItem() {
+        WebElement firstProductThumb = getWebDriver().findElement(productThumb);
+        ((JavascriptExecutor) getWebDriver()).executeScript("arguments[0].scrollIntoView();", firstProductThumb);
         return this;
     }
 

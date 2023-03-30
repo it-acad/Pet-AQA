@@ -43,7 +43,7 @@ public class BaseUITests{
 
     @Step
     public HomePage openHomePage() {
-        Selenide.open("https://demo.opencart.com/");
+        Selenide.open("https://dev.webmakers.com.ua/opencart/3.0.2.0/");
         return new HomePage();
     }
 
