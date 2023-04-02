@@ -1,6 +1,7 @@
 pipeline {
     environment {
         HEADLESS_MODE = 'true'
+        PATH = "/usr/local/bin:$PATH"
     }
     agent any
 
@@ -48,3 +49,4 @@ pipeline {
         }
     }
 }
+export PATH=$PATH:/usr/local/bin/docker
