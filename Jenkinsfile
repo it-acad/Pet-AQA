@@ -1,4 +1,7 @@
 pipeline {
+environment {
+    HEADLESS_MODE = 'true'
+}
     agent any
 
     stages {
