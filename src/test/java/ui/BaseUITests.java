@@ -32,7 +32,7 @@ public class BaseUITests{
         SelenideLogger.addListener("AllureListener", new AllureSelenide().enableLogs(LogType.BROWSER, Level.ALL));
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--disable-dev-shm-usage");
         Configuration.browser = "ui.CustomWebDriverProvider";
-        Configuration.headless = false;
+        Configuration.headless = true;
     }
 
     @BeforeEach
