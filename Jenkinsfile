@@ -1,7 +1,6 @@
 pipeline {
     environment {
         HEADLESS_MODE = 'true'
-        PATH = "/usr/local/bin:$PATH"
     }
     agent any
 
