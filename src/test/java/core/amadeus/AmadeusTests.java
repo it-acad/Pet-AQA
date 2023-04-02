@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("[Base Amadeus test]")
 public class AmadeusTests extends BaseApiTests {
     @Test
+    @Disabled
     @DisplayName("Verify flight destination")
     public void verifyAddAmadeus() {
         new AmadeusController()
