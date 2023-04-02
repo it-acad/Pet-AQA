@@ -14,6 +14,14 @@ pipeline {
             }
         }
 
+        stage('Run Tests') {
+            steps {
+                script {
+                    sh "./gradlew clean test --info --console=plain -Dtest.single=*Test* -Dorg.gradle.test.worker.maxDaemonIdleTimeMs=2000 -Dorg.gradle.test.worker.maxHeapSize=1024m -Dorg.gradle.caching=false -DignoreTestFailures=true"
+                }
+            }
+        }
+
         stage('Test') {
             steps {
                 sh './gradlew test'
