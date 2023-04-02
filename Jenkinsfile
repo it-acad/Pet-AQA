@@ -19,14 +19,14 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t my-ui-tests .'
+                sh 'docker build -t docker .'
             }
         }
 
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image('my-ui-tests').inside {
+                    docker.image('docker').inside {
                         sh "./gradlew clean test --info --console=plain -Dtest.single=*Test* -Dorg.gradle.test.worker.maxDaemonIdleTimeMs=2000 -Dorg.gradle.test.worker.maxHeapSize=1024m -Dorg.gradle.caching=false -DignoreTestFailures=true"
                     }
                 }
