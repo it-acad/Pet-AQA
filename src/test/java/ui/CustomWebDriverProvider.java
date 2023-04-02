@@ -13,6 +13,7 @@ public class CustomWebDriverProvider implements WebDriverProvider {
     public WebDriver createDriver(@NotNull Capabilities capabilities) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
+            options.setHeadless(true);
             options.merge(capabilities);
 
             return new ChromeDriver(options);

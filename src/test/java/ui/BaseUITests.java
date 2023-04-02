@@ -19,6 +19,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import ui.pages.home.HomePage;
 
+import java.util.Objects;
 import java.util.logging.Level;
 
 @Execution(ExecutionMode.CONCURRENT)
@@ -32,7 +33,6 @@ public class BaseUITests{
         SelenideLogger.addListener("AllureListener", new AllureSelenide().enableLogs(LogType.BROWSER, Level.ALL));
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--disable-dev-shm-usage");
         Configuration.browser = "ui.CustomWebDriverProvider";
-        Configuration.headless = true;
     }
 
     @BeforeEach
