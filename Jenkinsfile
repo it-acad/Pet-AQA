@@ -1,7 +1,7 @@
 pipeline {
-environment {
-    HEADLESS_MODE = 'true'
-}
+    environment {
+        HEADLESS_MODE = 'true'
+    }
     agent any
 
     stages {
@@ -17,17 +17,19 @@ environment {
             }
         }
 
-        stage('Run Tests') {
+        stage('Build Docker image') {
             steps {
-                script {
-                    sh "./gradlew clean test --info --console=plain -Dtest.single=*Test* -Dorg.gradle.test.worker.maxDaemonIdleTimeMs=2000 -Dorg.gradle.test.worker.maxHeapSize=1024m -Dorg.gradle.caching=false -DignoreTestFailures=true"
-                }
+                sh 'docker build -t my-ui-tests .'
             }
         }
 
-        stage('Test') {
+        stage('Run Tests') {
             steps {
-                sh './gradlew test'
+                script {
+                    docker.image('my-ui-tests').inside {
+                        sh "./gradlew clean test --info --console=plain -Dtest.single=*Test* -Dorg.gradle.test.worker.maxDaemonIdleTimeMs=2000 -Dorg.gradle.test.worker.maxHeapSize=1024m -Dorg.gradle.caching=false -DignoreTestFailures=true"
+                    }
+                }
             }
         }
 
@@ -45,4 +47,4 @@ environment {
             }
         }
     }
-    }
+}
