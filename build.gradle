@@ -11,10 +11,6 @@ allure {
 apply plugin: 'java'
 apply from: "gradle/dependencies.gradle"
 test {
-    test {
-        useJUnitPlatform()
-    }
-//    filter {
-//        includeTestsMatching("core.pet.PetTests")
-//    }
+    useJUnitPlatform()
+    finalizedBy 'allureReport'
 }
