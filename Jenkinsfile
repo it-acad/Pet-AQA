@@ -20,14 +20,14 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t docker .'
+                sh 'docker build -t docker1 .'
             }
         }
 
         stage('Run Docker container') {
             steps {
                 script {
-                    docker.image('docker').run("-p 8080:8080 -p 50000:50000 --name my-ui-tests -d")
+                    docker.image('docker1').run("-p 8080:8080 -p 50000:50000 --name my-ui-tests -d")
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    docker.image('docker').inside {
+                    docker.image('docker1').inside {
                         sh "./gradlew clean test --info --console=plain -Dtest.single=*Test* -Dorg.gradle.test.worker.maxDaemonIdleTimeMs=2000 -Dorg.gradle.test.worker.maxHeapSize=1024m -Dorg.gradle.caching=false -DignoreTestFailures=true"
                     }
                 }
