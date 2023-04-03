@@ -27,7 +27,7 @@ pipeline {
         stage('Run Docker container') {
             steps {
                 script {
-                    docker.image('docker1').run("-p 8080:8080 -p 50000:50000 --name my-ui-tests -d")
+                    docker.image('docker1').run("-p 8080:8080 -p 50000:50000 --name my-ui-tests1 -d")
                 }
             }
         }
