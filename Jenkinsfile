@@ -1,7 +1,6 @@
 pipeline {
     environment {
         HEADLESS_MODE = 'true'
-        PATH = "${PATH}:/usr/local/bin"
     }
     agent any
 
@@ -58,8 +57,8 @@ pipeline {
 
         stage('Stop Docker container') {
             steps {
-                sh 'docker stop my-ui-tests'
-                sh 'docker rm my-ui-tests'
+                sh 'docker stop my-ui-tests1'
+                sh 'docker rm my-ui-tests1'
             }
         }
     }
