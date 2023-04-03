@@ -23,6 +23,14 @@ pipeline {
             }
         }
 
+        stage('Run Docker container') {
+            steps {
+                script {
+                    docker.image('docker').run('-p 8080:8080', '-p 50000:50000', '--name my-ui-tests -d')
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
@@ -44,6 +52,13 @@ pipeline {
                 script {
                     allure([includeProperties: false, jdk: '', properties: [], reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results']]])
                 }
+            }
+        }
+
+        stage('Stop Docker container') {
+            steps {
+                sh 'docker stop my-ui-tests'
+                sh 'docker rm my-ui-tests'
             }
         }
     }
