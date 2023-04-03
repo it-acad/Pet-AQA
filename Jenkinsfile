@@ -11,12 +11,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh './gradlew clean build'
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 script {
