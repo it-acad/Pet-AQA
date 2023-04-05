@@ -1,6 +1,7 @@
 package helper.clean_up;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -21,19 +22,24 @@ public class CleanUpExtension implements AfterAllCallback {
     @Override
     public void afterAll(ExtensionContext context) {
         for (Long id : idsToDelete) {
-            Allure.step("Deleting pet with ID: " + id, () -> {
-                int statusCode = given()
-                        .log().all()
-                        .baseUri("https://petstore3.swagger.io")
-                        .basePath("/api/v3/")
-                        .accept(ContentType.JSON)
-                        .contentType(ContentType.JSON)
-                        .delete("/pet/{id}", id)
-                        .then()
-                        .extract()
-                        .statusCode();
-                Allure.step("Verifying response status code is 200", () -> assertEquals(200, statusCode, "Status code is not 200 but " + statusCode));
-            });
+            deletePetById(id);
         }
     }
+
+    @Step("Delete pet with ID: {id}")
+    private static void deletePetById(Long id) {
+        int statusCode = given()
+                .log().all()
+                .baseUri("https://petstore3.swagger.io")
+                .basePath("/api/v3/")
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .delete("/pet/{id}", id)
+                .then()
+                .extract()
+                .statusCode();
+
+        assertEquals(200, statusCode, "Status code of clean up {statusCode}");
+    }
+
 }
