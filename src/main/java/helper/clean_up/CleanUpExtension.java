@@ -21,7 +21,7 @@ public class CleanUpExtension implements AfterAllCallback {
     @Override
     public void afterAll(ExtensionContext context) {
         for (Long id : idsToDelete) {
-            Allure.step("Delete pet with ID: " + id + " and verify status code is 200", () -> {
+            Allure.step("Deleting pet with ID: " + id, () -> {
                 int statusCode = given()
                         .log().all()
                         .baseUri("https://petstore3.swagger.io")
@@ -32,8 +32,7 @@ public class CleanUpExtension implements AfterAllCallback {
                         .then()
                         .extract()
                         .statusCode();
-
-                assertEquals(200, statusCode, "Status code is not 200 but {statusCode}");
+                Allure.step("Verifying response status code is 200", () -> assertEquals(200, statusCode, "Status code is not 200 but " + statusCode));
             });
         }
     }
