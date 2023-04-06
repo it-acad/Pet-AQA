@@ -3,7 +3,6 @@ package common;
 import helper.clean_up.CleanUpExtension;
 import io.qameta.allure.Link;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -11,6 +10,6 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 @ExtendWith(CleanUpExtension.class)
 @Execution(ExecutionMode.CONCURRENT)
 public class BaseTest {
-    @RegisterExtension
-    CleanUpExtension petRemoveExtension = new CleanUpExtension();
+//    @RegisterExtension
+//    CleanUpExtension petRemoveExtension = new CleanUpExtension();
 }

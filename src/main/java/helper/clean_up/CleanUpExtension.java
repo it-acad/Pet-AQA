@@ -1,32 +1,33 @@
 package helper.clean_up;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.extension.AfterAllCallback;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.util.Set;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-public class CleanUpExtension implements AfterAllCallback {
+@DisplayName("Clean up test data")
+public class CleanUpExtension implements AfterEachCallback {
 
     private final Set<Long> idsToDelete;
 
     public CleanUpExtension() {
-        this.idsToDelete = TestDataRemoveCollector.getIds();
+        idsToDelete = TestDataRemoveCollector.getIds();
     }
 
     @Override
-    public void afterAll(ExtensionContext context) {
+    public void afterEach(ExtensionContext context) {
+
         for (Long id : idsToDelete) {
             deletePetById(id);
         }
     }
 
-    @Step("Delete pet with ID: {id}")
+    @Step("Delete pet by id: {id}")
     private static void deletePetById(Long id) {
         int statusCode = given()
                 .log().all()
