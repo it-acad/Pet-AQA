@@ -24,7 +24,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build
       - name: Publish Allure report
-        uses: allure-framework/allure-github-action@v2.2.0
+        uses: allure-framework/allure-github-action@v2.4.0
         with:
           command: allure generate -c -o build/allure-report
           report_dir: build/allure-report
