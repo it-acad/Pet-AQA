@@ -23,3 +23,9 @@ jobs:
         run: ./gradlew build
       - name: Run tests
         run: ./gradlew test
+      - name: Publish Allure report
+        uses: anmolsekhon/allure-github-action@v2
+        with:
+          version: 2.14.0
+          results: build/allure-results
+        if: always()
