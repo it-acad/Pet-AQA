@@ -19,5 +19,5 @@ jobs:
         with:
           results_dir: build/allure-results
           report_dir: build/reports/build/allure-report
-          env:
-            GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
