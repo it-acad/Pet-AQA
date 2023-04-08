@@ -26,5 +26,5 @@ jobs:
       - name: Publish Allure report
         uses: allure-framework/allure-github-action@v2.4.0
         with:
-          command: allure generate -c -o build/allure-report
-          report_dir: build/allure-report
+          command: allure generate build/reports/build/allure-report -c -o build/allure-report
+          report_dir: build/reports/build/allure-report
