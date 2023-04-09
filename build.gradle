@@ -3,7 +3,16 @@ plugins {
 }
 apply plugin: 'java'
 apply from: "gradle/dependencies.gradle"
+
+allure {
+    version = allureVer
+    boolean clean = true
+    useJUnit5 {
+        version = allureVer
+    }
+}
+
 test {
     useJUnitPlatform()
-//    finalizedBy 'allureReport'
+    finalizedBy 'allureReport'
 }

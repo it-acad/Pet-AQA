@@ -20,9 +20,11 @@ jobs:
         run: chmod +x ./gradlew
       - name: Clean Gradle
         run: ./gradlew clean
-      - name: Gradle build
-        run: ./gradlew build
+      - name: Run Tests
+        run: ./gradlew test
         continue-on-error: true
+      - name: Generate Allure Report
+        run: ./gradlew allureReport
 
       - name: Get Allure history
         uses: actions/checkout@v2
