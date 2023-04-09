@@ -15,6 +15,7 @@ jobs:
         with:
           java-version: '15'
           distribution: 'adopt'
+      - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Clean Gradle
