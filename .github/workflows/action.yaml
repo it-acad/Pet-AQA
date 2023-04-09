@@ -26,6 +26,13 @@ jobs:
       - name: Generate Allure Report
         run: ./gradlew allureReport
 
+      - name: Publish Allure Report
+        uses: allure-framework/allure-github-action@v1.0.1
+        with:
+          version: '2.14.0'
+          allure-results: build/allure-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
