@@ -22,4 +22,4 @@ jobs:
       - name: Clean Gradle
         run: ./gradlew clean
       - name: Clean Gradle
-        run: ./gradlew build --continue
+        run: ./gradlew test --continue
