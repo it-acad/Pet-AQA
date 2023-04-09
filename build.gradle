@@ -11,5 +11,5 @@ apply plugin: 'java'
 apply from: "gradle/dependencies.gradle"
 test {
     useJUnitPlatform()
-    finalizedBy 'allureReport'
+//    finalizedBy 'allureReport'
 }
