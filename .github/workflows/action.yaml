@@ -58,5 +58,5 @@ jobs:
           context: 'Test report'
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: https://Maxi-gorislav.github.io/github-allure-history/${{ github.run_number }}
+          target_url: https://Maxi-gorislav.github.io/Pet-AQA/${{ github.run_number }}
 
