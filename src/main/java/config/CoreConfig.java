@@ -8,7 +8,7 @@ public class CoreConfig {
     private String hostUrl;
     private String adminUiUrl;
     private String amadeusUrl;
-    private String shoppingPath;
+    private String checkInLink;
     private String petPath;
     private String petUrl;
     private String clientId;

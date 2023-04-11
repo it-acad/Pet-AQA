@@ -1,5 +1,6 @@
 package helper.clean_up;
 
+import config.Conf;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
@@ -31,16 +32,16 @@ public class CleanUpExtension implements AfterEachCallback {
     private static void deletePetById(Long id) {
         int statusCode = given()
                 .log().all()
-                .baseUri("https://petstore3.swagger.io")
-                .basePath("/api/v3/")
+                .baseUri(Conf.core().getPetUrl())
+                .basePath(Conf.core().getPetPath())
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .delete("/pet/{id}", id)
+                .delete("/{id}", id)
                 .then()
                 .extract()
                 .statusCode();
 
-        assertEquals(200, statusCode, "Status code of clean up {statusCode}");
+        assertEquals(200, statusCode, "Status code of clean up" + statusCode);
     }
 
 }

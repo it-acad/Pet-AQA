@@ -14,15 +14,15 @@ import static io.restassured.config.HeaderConfig.headerConfig;
 public class BaseController<T> {
     private String authValue = null;
 
-    protected RequestSpecification baseClient(final String targetPath, final String baseUri) {
-        return baseClientSelect(targetPath, baseUri);
+    protected RequestSpecification baseClient(final String baseUrl, final String targetPath) {
+        return baseClientSelect(baseUrl, targetPath);
     }
 
-    protected RequestSpecification baseClientSelect(final String targetPath, final String baseUri) {
+    protected RequestSpecification baseClientSelect(final String baseUrl, final String targetPath) {
         var baseService = given()
                 .config(RestAssuredConfig.config()
                         .headerConfig(headerConfig().overwriteHeadersWithName("Authorization", "Content-Type")))
-                .baseUri(baseUri)
+                .baseUri(baseUrl)
                 .basePath(targetPath)
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
