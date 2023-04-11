@@ -2,8 +2,8 @@
 hostUrl: https://demo-opencart.com/
 adminUiUrl: https://demo-opencart.com/admin
 #Amadeus
-amadeusUrl: https://test.api.amadeus.com/
-shoppingPath: /v1/shopping
+amadeusUrl: https://test.api.amadeus.com
+checkInLink: /v2/reference-data/urls
 #Pet
 petUrl: https://petstore.swagger.io
 petPath: /v2/pet

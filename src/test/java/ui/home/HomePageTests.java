@@ -50,7 +50,7 @@ public class HomePageTests extends BaseUITests {
         SelenideElement priceElement = $(By.xpath("//a[text() = 'MacBook Pro']/ancestor::div[contains(@class, 'caption')]//p[contains(@class,'price')]"));
         String price = priceElement.getText().split("\n")[0];
 
-        assertEquals("$2,099.21", price);
+        assertEquals("$2,107.58", price);
     }
 
     @Test

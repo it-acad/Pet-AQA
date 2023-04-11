@@ -2,22 +2,19 @@ package controllers.amadeus;
 
 import config.Conf;
 import controllers.BaseController;
-import entities.dto.pet.PetDTO;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import verifycators.AmadeusVerification;
-import verifycators.PetVerification;
 
 public class AmadeusController extends BaseController<AmadeusController> {
     private final String baseUri = Conf.core().getAmadeusUrl();
-    private final String basePath = Conf.core().getShoppingPath();
+    private final String basePath = Conf.core().getCheckInLink();
 
-    @Step("Get flight by original: {original} and maxPrice: {maxPrice}")
-    public AmadeusVerification getFlightDestination(String original, long maxPrice) {
-        Response response = baseClient(basePath, baseUri)
-                .queryParam("origin", original)
-                .queryParam("maxPrice", maxPrice)
-                .get("/flight-destinations");
+    @Step("Get flight check-in links by airlineCode={airlineCode}")
+    public AmadeusVerification getFlightDestination(String airlineCode) {
+        Response response = baseClient(baseUri, basePath)
+                .queryParam("airlineCode", airlineCode)
+                .get("/checkin-links");
         return new AmadeusVerification(response);
     }
 }
