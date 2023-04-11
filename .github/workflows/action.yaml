@@ -54,9 +54,9 @@ jobs:
         if: always()
         uses: Sibz/github-status-action@v1
         with:
-          authToken: ${{secrets.TOKEN}}
+          authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Test report'
-          state: 'failure'
-          sha: ${{ github.event.pull_request.head.sha }}
-          target_url: simple-elf.github.io/github-allure-history/${{ github.run_number }}
+          state: 'success'
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
+          target_url: Maxi-gorislav.github.io/github-allure-history/${{ github.run_number }}
 
