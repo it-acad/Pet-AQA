@@ -5,8 +5,8 @@ adminUiUrl: https://demo-opencart.com/admin
 amadeusUrl: https://test.api.amadeus.com/
 shoppingPath: /v1/shopping
 #Pet
-petPath: https://petstore3.swagger.io
-petUrl: /api/v3/pet
+petUrl: https://petstore.swagger.io
+petPath: /v2/pet
 #credentials
 clientId: yMlMohdXqKJxWNpcv0SvIs4nMBaH1wwW
 secretKey: 1szhf54F4UA1FPQ2
