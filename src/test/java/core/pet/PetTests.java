@@ -27,16 +27,16 @@ public class PetTests extends BaseTest {
                 .expectedEqualsPet(pet);
     }
 
-    //Created for checking cleanUp works
-    @RepeatedTest(10)
+    @Test
     @DisplayName("Verify create multiple Pet")
     public void verifyAddMultiplePets() {
-        PetDTO pet = PetTestDataGenerator.generatePet();
-
-        new PetController()
-                .addPet(pet)
-                .expectedCode(HttpStatus.SC_OK)
-                .expectedEqualsPet(pet);
+        for (int i = 0; i < 10; i++) {
+            PetDTO pet = PetTestDataGenerator.generatePet();
+            new PetController()
+                    .addPet(pet)
+                    .expectedCode(HttpStatus.SC_OK)
+                    .expectedEqualsPet(pet);
+        }
     }
 
     @Test
