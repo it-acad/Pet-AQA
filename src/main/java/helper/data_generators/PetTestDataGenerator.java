@@ -14,7 +14,6 @@ public class PetTestDataGenerator {
     public PetDTO generatePet() {
 
         return PetDTO.builder()
-                .id(new Faker().number().randomNumber())
                 .name("doggie")
                 .status("available")
                 .category(new CategoryDTO(2L, "string"))
