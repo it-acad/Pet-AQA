@@ -8,8 +8,6 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 
 @Link(name = "allure", type = "mylink")
 @ExtendWith(CleanUpExtension.class)
-@Execution(ExecutionMode.CONCURRENT)
+@Execution(ExecutionMode.SAME_THREAD)
 public class BaseTest {
-//    @RegisterExtension
-//    CleanUpExtension petRemoveExtension = new CleanUpExtension();
 }

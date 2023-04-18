@@ -1,12 +1,11 @@
 #FrontEnd
-hostUrl: https://demo-opencart.com/
-adminUiUrl: https://demo-opencart.com/admin
+uiUrl: https://dev.webmakers.com.ua/opencart/3.0.2.0/
 #Amadeus
-amadeusUrl: https://test.api.amadeus.com/
-shoppingPath: /v1/shopping
+amadeusUrl: https://test.api.amadeus.com
+checkInLink: /v2/reference-data/urls
 #Pet
-petPath: https://petstore3.swagger.io
-petUrl: /api/v3/pet
+petUrl: https://petstore.swagger.io
+petPath: /v2/pet
 #credentials
 clientId: yMlMohdXqKJxWNpcv0SvIs4nMBaH1wwW
 secretKey: 1szhf54F4UA1FPQ2
